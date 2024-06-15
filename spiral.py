@@ -8,17 +8,12 @@ def dirs():
 
 
 def main():
-    num = 25
-
-    assert (a := num ** 0.5).is_integer()
-    a = int(a)
-
+    a = 5
     m = [[0 for _ in range(a)] for _ in range(a)]
     x = y = a//2
-    for n, (dx, dy) in zip(range(num), dirs()):
+    for n, (dx, dy) in zip(range(num := a**2), dirs()):
         m[x][y] = n
-        x += dx
-        y += dy
+        x, y = x+dx, y+dy
 
     w = len(str(num))
     print(*(' '.join((str(n).ljust(w) for n in r)) for r in m), sep='\n')
