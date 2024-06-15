@@ -21,8 +21,7 @@ def main():
         y += dy
 
     w = len(str(num))
-    for r in m:
-        print(*(str(n).ljust(w) for n in r))
+    print(*(' '.join((str(n).ljust(w) for n in r)) for r in m), sep='\n')
 
 
 if __name__ == '__main__':
