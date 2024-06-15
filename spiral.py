@@ -14,13 +14,11 @@ def main():
     a = int(a)
 
     m = [[0 for _ in range(a)] for _ in range(a)]
-    pos = a//2, a//2
-    d = dirs()
-    for n in range(num):
-        x, y = pos
+    x = y = a//2
+    for n, (dx, dy) in zip(range(num), dirs()):
         m[x][y] = n
-        dx, dy = next(d)
-        pos = x+dx, y+dy
+        x += dx
+        y += dy
 
     w = len(str(num))
     for r in m:
