@@ -4,7 +4,7 @@ def dirs():
     i = 0
     while i := i + 1:
         d *= -1j
-        yield from ((int(d.imag), int(d.real)) for _ in range(i//2))
+        yield from ((int(d.imag), int(d.real)), ) * (i//2)
 
 
 def main():
