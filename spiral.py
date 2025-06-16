@@ -1,8 +1,12 @@
 
+def c_tup(z):
+    return int(z.imag), int(z.real)
+
+
 def dirs():
     i = 0
-    while i := i + 1:
-        yield from ((lambda d: (int(d.imag), int(d.real)))(1j**i), ) * (i//2)
+    while i := i+1:
+        yield from i//2 * (c_tup(1j**i), )
 
 
 def spiral(a):
@@ -13,7 +17,7 @@ def spiral(a):
         x, y = x+dx, y+dy
 
     w = len(str(num))
-    print(*(' '.join((str(n).ljust(w) for n in r)) for r in m), sep='\n')
+    print(*(' '.join(str(n).ljust(w) for n in r) for r in m), sep='\n')
 
 
 def main():
@@ -23,3 +27,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
