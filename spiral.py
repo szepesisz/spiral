@@ -11,11 +11,11 @@ def spiral(a):
     m = [[0 for _ in range(a)] for _ in range(a)]
     x = y = a//2
     for n, (dx, dy) in enumerate(dirs(a)):
-        m[x][y] = n
+        m[y][x] = n
         x, y = x+dx, y+dy
 
     w = len(str(a**2))
-    print(*(' '.join(str(n).ljust(w) for n in r) for r in m), sep='\n')
+    print(*(' '.join(str(n).rjust(w) for n in r) for r in m), sep='\n')
 
 
 def main():
